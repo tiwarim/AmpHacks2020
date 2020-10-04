@@ -23,7 +23,7 @@
 
   <body>
     <nav class="navbar navbar-dark sticky-top flex-md-nowrap p-0">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/" style="font-family:Sansita Swashed">Sublimit</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/" style="font-family:Sansita Swashed">SubLimit</a>
       <ul class="navbar-nav px-3"></ul>
         <li class="nav-item text-nowrap">
           <a class="nav-link" href="/signout">Sign out</a>
@@ -157,7 +157,7 @@
         data: {
           labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
           datasets: [{
-            data: [75, 50, 35, 32, 20, 80, 93],
+            data: [15, 5, 3, 2, 2, 6, 20],
             lineTension: 0,
             backgroundColor: 'transparent',
             borderColor: '#0057ad',
@@ -166,6 +166,10 @@
           }]
         },
         options: {
+          title:{
+                display:true, 
+                text: "Total Subscription Usage (Hrs)/Day"
+            }, 
           scales: {
             yAxes: [{
               ticks: {

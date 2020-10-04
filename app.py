@@ -8,7 +8,7 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 app.static_folder = "static"
 
-netflix = {"name": "Netflix", "day": 0.5, "month": 35, "cost":  "$12.99", "url": "netflix"}
+netflix = {"name": "Netflix", "day": 1.7, "month": 51, "cost":  "$12.99", "url": "netflix"}
 nyt = {"name": "New York Times", "day": 0.2, "month": 2, "cost":  "$17.99", "url": "nyt"}
 prime = {"name": "Amazon Prime", "day": 0.1, "month": 1, "cost":  "$7.99", "url": "prime"}
 spotify = {"name": "Spotify", "day": 5, "month": 150, "cost":  "$5.99", "url": "spotify"}
