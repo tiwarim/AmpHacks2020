@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
 
-    <title>Checkout example for Bootstrap</title>
+    <title>Add Subscription</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
 
@@ -18,15 +18,17 @@
     <!-- Custom styles for this template -->
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles3.css') }}">
     <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='new.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap" rel="stylesheet">
 
 
   </head>
 
-  <body class = "bg">
+  <body class = "bg-light">
 
     <div class="container">
       <div class="py-5 text-center">
-        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h1 style="font-family: Sansita Swashed;">Nife</h1>
+        <!-- <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
         <h2>Add Subscription</h2>
         <p class="lead">Enter information about the subscription you would like to track</p>
       </div>
@@ -89,7 +91,7 @@
       </div>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
-        <p class="mb-1">&copy; 2020 Company Name</p>
+        <p class="mb-1">&copy; 2020 Nife</p>
         <ul class="list-inline">
           <li class="list-inline-item"><a href="#">Privacy</a></li>
           <li class="list-inline-item"><a href="#">Terms</a></li>
@@ -107,26 +109,5 @@
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <script src="app.py" charset="utf-8"></script>
-    //   // Example starter JavaScript for disabling form submissions if there are invalid fields
-    //   (function() {
-    //     'use strict';
-
-    //     window.addEventListener('load', function() {
-    //       // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    //       var forms = document.getElementsByClassName('needs-validation');
-
-    //       // Loop over them and prevent submission
-    //       var validation = Array.prototype.filter.call(forms, function(form) {
-    //         form.addEventListener('submit', function(event) {
-    //           if (form.checkValidity() === false) {
-    //             event.preventDefault();
-    //             event.stopPropagation();
-    //           }
-    //           form.classList.add('was-validated');
-    //         }, false);
-    //       });
-    //     }, false);
-    //   })();
-    </script>
-  </body>
+ </body>
 </html>

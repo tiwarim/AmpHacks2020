@@ -15,19 +15,14 @@ body {
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #0057ad;
-}
-
-.h3 {
-    color: white; 
+  background-color: #e5e5e5;
 }
 
 .btn-primary {
-    background-color: #ffe400;
-    color: black; 
+    background-color:  #0057ad;
+    color: white; 
 
 }
-
 .btn-primary:hover {
     background-color: #434343;
 }
@@ -61,3 +56,26 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+
+.sticky-top{position:-webkit-sticky;position:sticky;top:0;z-index:1020}
+
+.site-header {
+  background-color: #0057ad;
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color:#fff;
+  transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+  color:  #999;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background-color: #434343;
+}
+
+.py-1{padding-top:.25rem!important}

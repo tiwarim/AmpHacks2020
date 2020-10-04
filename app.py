@@ -47,6 +47,11 @@ def addNew():
     request.form.get("name").replace(" ", "")}
     lst.append(new)
     return render_template("dashboard.html", lst=lst)
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html", lst=lst)
+
 # # reads in the ML model
 # try:
 #     with open("./model_pickle", 'rb') as file:
@@ -57,6 +62,10 @@ def addNew():
 @app.route("/signout")
 def signOut():
     return render_template("home.html")
+
+@app.route("/netflix")
+def netflix():
+    return render_template("netflix.html")
 
 # Makes a prediction with the ML model and formats a json message based on 
 # prediction results

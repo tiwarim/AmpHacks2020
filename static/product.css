@@ -5,6 +5,10 @@
   /*
    * Custom translucent site header
    */
+
+   .btn {
+    background-color:  #0057ad;
+  }
   
   .site-header {
     background-color: #0057ad;
@@ -79,3 +83,4 @@
   }
   
   .overflow-hidden { overflow: hidden; }
+

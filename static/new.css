@@ -11,8 +11,8 @@
   .lh-condensed { line-height: 1.25; }
 
   .btn {
-      background-color:  #ffe400;
-      color: black; 
+      background-color:  #0057ad;
+      color:white;  
   }
   .custom-control-input {
       background-color: #0057ad;
@@ -24,5 +24,5 @@
     background-color: #434343;
 }
 body {
-    color: white; 
+    color: black; 
 }
