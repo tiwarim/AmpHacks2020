@@ -1,0 +1,132 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Checkout example for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+
+
+    <!-- Custom styles for this template -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles3.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='new.css') }}">
+
+
+  </head>
+
+  <body class = "bg">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>Add Subscription</h2>
+        <p class="lead">Enter information about the subscription you would like to track</p>
+      </div>
+
+      <div class="row">
+          <!-- <h4 class="mb-3">Subscription Name</h4> -->
+          <form class="needs-validation" action ="{{ url_for('addNew') }}" method="post">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name">Subscription Name</label>
+                <input type="text" class="form-control" name="name" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Subscription name is required.
+                </div>
+              </div>
+              </div>
+              <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="cost">Monthly Cost (in $)</label>
+                <input type="text" class="form-control" name="cost" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                  Monthly cost is required.
+                </div>
+            </div>
+            </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="usage">Monthly Usage</label>
+                      <select class="custom-select d-block w-100" name="usage" required>
+                        <option value="">Choose...</option>
+                        <option> < 1 hour</option>
+                        <option> 1-10 hours</option>
+                        <option> 10 - 50 hours</option>
+                        <option> > 50 hours</option>
+                      </select>
+                      <!-- <input type="text" class="form-control" id="usage" placeholder="" value="" required> -->
+                    </div>
+                </div>
+
+            <h4 class="mb-3">Acknowledgement</h4>
+            <p class= "mb-1">In order to monitor your subscriptions, we need permission to track your usage of this 
+                service. Your data will never be sold or used by 3rd parties. If you agree to our T&Cs click Agree to proceed. 
+            </p>
+
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input name="agree" id="agree" type="radio" class="custom-control-input" value="true" required>
+                <label class="custom-control-label" for="agree">Agree</label>
+              </div>
+              <div class="custom-control custom-radio">
+                <input name="agree" id="disagree" type="radio" class="custom-control-input" value="false" required>
+                <label class="custom-control-label" for="disagree">Disagree</label>
+              </div>
+            </div>
+            
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block rounded-0" type="submit">Add Subscription</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2020 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script src="app.py" charset="utf-8"></script>
+    //   // Example starter JavaScript for disabling form submissions if there are invalid fields
+    //   (function() {
+    //     'use strict';
+
+    //     window.addEventListener('load', function() {
+    //       // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //       var forms = document.getElementsByClassName('needs-validation');
+
+    //       // Loop over them and prevent submission
+    //       var validation = Array.prototype.filter.call(forms, function(form) {
+    //         form.addEventListener('submit', function(event) {
+    //           if (form.checkValidity() === false) {
+    //             event.preventDefault();
+    //             event.stopPropagation();
+    //           }
+    //           form.classList.add('was-validated');
+    //         }, false);
+    //       });
+    //     }, false);
+    //   })();
+    </script>
+  </body>
+</html>

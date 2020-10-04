@@ -1,13 +1,62 @@
 import pickle
 import json
 import requests
+from flask import Flask, render_template, request 
+#from app.user.routes import *
 
-# reads in the ML model
-try:
-    with open("./model_pickle", 'rb') as file:
-        predictionModel = pickle.load(file)
-except IOError as e:
-        print(e)
+
+app = Flask(__name__)
+app.static_folder = "static"
+
+netflix = {"name": "Netflix", "day": 0.5, "month": 35, "cost":  "$12.99", "url": "netflix"}
+nyt = {"name": "New York Times", "day": 0.2, "month": 2, "cost":  "$17.99", "url": "nyt"}
+prime = {"name": "Amazon Prime", "day": 0.1, "month": 1, "cost":  "$7.99", "url": "prime"}
+spotify = {"name": "Spotify", "day": 5, "month": 150, "cost":  "$5.99", "url": "spotify"}
+goog = {"name": "Google One", "day": 0, "month": 0.5, "cost":  "$2.99", "url": "google"}
+
+lst = [netflix, nyt, prime, spotify, goog]
+
+
+@app.route("/")
+def index(): 
+    return render_template("home.html")
+
+@app.route("/signin")
+def login(): 
+    return render_template("login.html")
+
+@app.route("/newSubscription")
+def new(): 
+    return render_template("new.html")
+
+@app.route("/login", methods=["POST"])
+def validate():
+    print(request.form.keys())
+    print(request.form.get("inputPassword"))
+    if (request.form.get("inputEmail") == "Team10@AmpHacks.com" and
+        request.form.get("inputPassword") == "AMPHACKSROX"): 
+        return render_template("dashboard.html", lst=lst)
+    else:
+        render_template("signin.html")
+        #To Do: Send back error message
+
+@app.route("/addNew", methods=["POST"])
+def addNew():
+    new = {"name": request.form.get("name"), "day": "n/a",
+    "month": request.form.get("usage"), "cost": "$" + request.form.get("cost"), "url":
+    request.form.get("name").replace(" ", "")}
+    lst.append(new)
+    return render_template("dashboard.html", lst=lst)
+# # reads in the ML model
+# try:
+#     with open("./model_pickle", 'rb') as file:
+#         predictionModel = pickle.load(file)
+# except IOError as e:
+#         print(e)
+
+@app.route("/signout")
+def signOut():
+    return render_template("home.html")
 
 # Makes a prediction with the ML model and formats a json message based on 
 # prediction results
@@ -18,14 +67,14 @@ def makePrediction(data, subscriber):
         message = {
             "Subscriber" : subscriber,
             "Prediction" : "almost never",
-            "Message" : f"You almost never use {subscriber}, consider unsubcribing?"
+            "Message" : "You almost never use "+ subscriber +" consider unsubcribing?"
         }
 
     elif result[0] == 1:
         message = {
             "Subscriber" : subscriber,
             "Prediction" : "rarely",
-            "Message" : f"You rarely {subscriber}, save some money?"
+            "Message" : "You rarely " +subscriber+" save some money?"
         }
     
     elif result[0] == 2:
@@ -58,8 +107,11 @@ def generateMessage(data, subscriber):
 
     #send out the json message
     try:
-        r = requests.post("https://localhost:8080", json=jsonMessage)
+        r = requests.post("https://localhost:8000", json=jsonMessage)
     except Exception as e:
         print(e)
 
-generateMessage(None, None)
+#generateMessage(None, None)
+
+if __name__ == '__main__':
+    app.run(use_reloader=True) 
