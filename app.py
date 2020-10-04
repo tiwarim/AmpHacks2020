@@ -50,7 +50,8 @@ def addNew():
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html", lst=lst)
+    return render_template("dashboard.html", lst=lst, 
+    message="You almost never use Google One, consider unsubcribing?")
 
 # # reads in the ML model
 # try:
