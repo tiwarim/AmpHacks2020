@@ -35,7 +35,7 @@ def validate():
     print(request.form.get("inputPassword"))
     if (request.form.get("inputEmail") == "Team10@AmpHacks.com" and
         request.form.get("inputPassword") == "AMPHACKSROX"): 
-        return render_template("dashboard.html", lst=lst)
+        return render_template("dashboard.html", lst=lst, message="You almost never use Google One, consider unsubcribing?")
     else:
         render_template("signin.html")
         #To Do: Send back error message
@@ -46,7 +46,8 @@ def addNew():
     "month": request.form.get("usage"), "cost": "$" + request.form.get("cost"), "url":
     request.form.get("name").replace(" ", "")}
     lst.append(new)
-    return render_template("dashboard.html", lst=lst)
+    return render_template("dashboard.html", lst=lst, 
+    message="You almost never use Google One, consider unsubcribing?")
 
 @app.route("/dashboard")
 def dashboard():
